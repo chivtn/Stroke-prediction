@@ -1,42 +1,41 @@
 # 🧠 Stroke Data Preprocessing Project
 
-## 📌 Giới thiệu
-Dự án này thực hiện tiền xử lý dữ liệu về **đột quỵ** (stroke prediction dataset).  
-Mục tiêu là làm sạch, xử lý dữ liệu thiếu và chuẩn hóa các thuộc tính trước khi đưa vào các mô hình học máy dự đoán khả năng bị đột quỵ.
+## 📌 Introduction
+This project focuses on **data cleaning and preprocessing** for a **stroke prediction dataset**.  
+The goal is to handle missing values, encode categorical features, and normalize numerical attributes so the data can be used effectively in machine learning models for stroke prediction.
 
-## 🛠️ Các bước thực hiện
+## 🛠️ Workflow
 
-1. **Đọc dữ liệu**  
-   - Nguồn: `data_dotquy.csv`  
-   - Sử dụng thư viện `pandas` để tải và thao tác dữ liệu.
+1. **Data Loading**  
+   - Source: `data_dotquy.csv`  
+   - Loaded using `pandas`.
 
-2. **Làm sạch dữ liệu**
-   - Loại bỏ các bản ghi trùng lặp theo `id`.
-   - Xử lý giá trị thiếu:
-     - Sử dụng **KNN Imputer** để điền dữ liệu thiếu trong cột `bmi`.
-   - Loại bỏ cột không cần thiết (`id`).
+2. **Data Cleaning**
+   - Remove duplicate records based on `id`.
+   - Handle missing values:
+     - Apply **KNN Imputer** to fill missing values in the `bmi` column.
+   - Drop unnecessary columns (`id`).
 
-3. **Xử lý dữ liệu phân loại**
-   - Giới tính (`gender`): Male → 0, Female → 1 (loại bỏ giá trị *Other*).
-   - Tình trạng hôn nhân (`ever_married`): No → 0, Yes → 1.
-   - Loại công việc (`work_type`): Mã hóa bằng **LabelEncoder**.
-   - Nơi ở (`Residence_type`): Rural → 0, Urban → 1.
+3. **Categorical Encoding**
+   - Gender (`gender`): Male → 0, Female → 1 (drop *Other*).
+   - Marital status (`ever_married`): No → 0, Yes → 1.
+   - Work type (`work_type`): Encoded using **LabelEncoder**.
+   - Residence type (`Residence_type`): Rural → 0, Urban → 1.
 
-4. **Chuẩn hóa dữ liệu số**
-   - Tuổi (`age`), chỉ số đường huyết trung bình (`avg_glucose_level`), BMI (`bmi`) được chuẩn hóa bằng **Min-Max Scaling**.
-
-## 📚 Công nghệ sử dụng
+4. **Numerical Normalization**
+   - Age (`age`), average glucose level (`avg_glucose_level`), and BMI (`bmi`) normalized using **Min-Max Scaling**.
+## 📚 Technologies Used
 - Python
 - pandas, numpy
 - scikit-learn (KNN Imputer, LabelEncoder, MinMaxScaler)
-- matplotlib / seaborn (nếu trực quan dữ liệu)
+- matplotlib / seaborn (for data visualization)
 
-## 🚀 Hướng phát triển
-- Áp dụng các mô hình học máy (Logistic Regression, Random Forest, XGBoost, v.v.) để dự đoán nguy cơ đột quỵ.
-- Trực quan dữ liệu chi tiết hơn (histogram, correlation heatmap).
-- Tối ưu pipeline xử lý dữ liệu.
+## 🚀 Future Development
+- Apply machine learning models (Logistic Regression, Random Forest) to predict stroke risk.
+- Perform deeper data visualization (histograms, correlation heatmaps).
+- Optimize preprocessing pipeline for scalability.
 
-## 👩‍💻 Nhóm thực hiện
+## 👩‍💻 Contributors
 - Hien
 - Chau
 - Chi
